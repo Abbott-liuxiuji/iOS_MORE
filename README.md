@@ -63,12 +63,12 @@ typedef NS_ENUM(NSInteger, UIBarPosition) {
 navigationBar.delegate = self;
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar
-{
+  {
     return UIBarPositionTopAttached;
-}
-  
+  }
+
   备注：navigationbar扩展到statusbar的颜色为barTintColor的值。如果失效，检查下是否将translucent设置为NO，并且Navigationbar必须为添加到ViewController的一级subView。
-自定义导航栏后发现SafeArea没有变化,这样设置contentview的时候会将navigationbar遮挡。
+  自定义导航栏后发现SafeArea没有变化,这样设置contentview的时候会将navigationbar遮挡。
 
 safeAreaInsets:{44, 0, 34, 0}）
 解决方案：设置additionalSafeAreaInsets
@@ -88,3 +88,58 @@ NSLayoutConstraint *height = [navigationBar.heightAnchor constraintEqualToConsta
 可以看到安全区域也更新了:
 
 safeAreaInsets:{88, 0, 34, 0}
+
+
+
+***
+
+## iPhone X 适配
+
+***
+
+1、搜索框 ：UISearchController
+
+》ios11  高：56
+
+《 ios11 高：44
+
+2、头部适配
+
+iPhoneX     状态栏： 30
+
+​                    导航栏：58   
+
+iPhoneX       总体：88
+
+非iPhone X  状态栏：20
+
+​                     导航栏：44
+
+​                     总体：64
+
+3、UItableview 系统11之后：
+
+​      XXX.estimatedRowHeight = 0
+
+​      XXX.estimatedSectionHeaderHeight = 0
+
+​      XXX.estimatedSectionFooterHeight = 0
+
+
+
+4、启动页适配
+
+
+
+5、屏幕底部圆角距离
+
+​     iphone X 因屏幕位圆角：底部增加 34
+
+
+
+
+
+
+
+
+
